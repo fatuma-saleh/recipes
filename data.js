@@ -53,15 +53,24 @@ const getRecipes = function () {
 };
 
 const getIngredients = function (recipeName) {
-  let steps
+  let steps;
   for (let recipe of recipes) {
     if (recipe.name === recipeName) {
       steps = recipe.instructions.length;
-      console.log(steps)
-      return recipe.ingredients
+      console.log(steps);
+      return recipe.ingredients;
     }
-  }  
-  return null
+  }
+  return null;
+};
+newRecipe = {
+  name: "butteredBagel",
+  ingredients: ["1 bagel", "butter"],
+  instructions: ["cut the bagel", "spread butter on bagel"],
+};
+const addRecipe = function (newRecipe) {
+  recipes.push(newRecipe);
+  console.log("****", recipes);
 };
 
-module.exports = { getRecipes, getIngredients };
+module.exports = { getRecipes, getIngredients, addRecipe };

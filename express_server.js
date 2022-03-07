@@ -3,7 +3,7 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-const { getRecipes,getIngredients } = require('./data')
+const { getRecipes,getIngredients,addRecipe } = require('./data')
 
 app.get("/recipes", (req, res) => {
   res.json(getRecipes());
@@ -18,12 +18,11 @@ console.log(ingredient)
   res.json(ingredient);
 //  res.status(200).send("Status:200");
 });
-
-
-
-
-
-
+app.post("/recipes", (req, res) => {
+  //addRecipe(req.body)
+  addRecipe();
+  res.status(201)
+});
 
 
 app.listen(PORT, () => {
