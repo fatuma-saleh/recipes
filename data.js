@@ -72,5 +72,13 @@ const addRecipe = function (newRecipe) {
   recipes.push(newRecipe);
   console.log("****", recipes);
 };
-
-module.exports = { getRecipes, getIngredients, addRecipe };
+const updateRecipes = function()
+{
+for(recipe of recipes){
+  if(recipe.name === butteredBagel){
+    recipe.ingredients[1] = "2 tbs butter"
+  }
+}
+return("Recipe does not exist")
+}
+module.exports = { getRecipes, getIngredients, addRecipe,updateRecipes };

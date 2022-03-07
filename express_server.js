@@ -23,7 +23,10 @@ app.post("/recipes", (req, res) => {
   addRecipe();
   res.status(201)
 });
-
+app.put("/recipes", (req, res) => {
+  updateRecipes();
+ res.status(204)
+});
 
 app.listen(PORT, () => {
   console.log(`Recipes Listening on port ${PORT}!`);
