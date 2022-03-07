@@ -3,11 +3,20 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-const { getRecipes } = require('./data')
+const { getRecipes,getIngredients } = require('./data')
 
 app.get("/recipes", (req, res) => {
   res.json(getRecipes());
-  return res.status(200).send("Status:200");
+ res.status(200).send("Status:200");
+});
+
+app.get("/recipes/details/:recipeName", (req, res) => {
+  const recipeName = req.params.recipeName;
+  console.log("++",recipeName)
+const  ingredient =  getIngredients(recipeName)
+console.log(ingredient)
+  res.json(ingredient);
+//  res.status(200).send("Status:200");
 });
 
 
